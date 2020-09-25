@@ -93,7 +93,10 @@ function decodeFunctionArgs(contractABI, bytecode) {
     const data = formatSingle(inputTypes[i], e);
     return { 'name': inputNames[i], 'type': inputTypes[i], 'data': data };
   });
-  return decodedArgs;
+  return {
+      name: func.name,
+      args: decodedArgs
+  };
 }
 
 module.exports = {
